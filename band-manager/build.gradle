@@ -1,0 +1,38 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.9.RELEASE'
+    id 'java'
+}
+
+group 'com.dersuzzala.bandwars.bandmanager'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.dersuzzala.bandwars.bandmanager.HelloWorld'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+jar {
+    baseName = 'gs-gradle'
+    version =  '0.1.0'
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.9.RELEASE")
+    compile "joda-time:joda-time:2.2"
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+
+
+
+
+
