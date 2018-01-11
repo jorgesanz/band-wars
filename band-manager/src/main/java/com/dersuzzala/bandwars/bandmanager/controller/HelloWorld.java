@@ -1,4 +1,4 @@
-package com.dersuzzala.bandwars.bandmanager;
+package com.dersuzzala.bandwars.bandmanager.controller;
 
 import org.joda.time.LocalTime;
 

@@ -1,4 +1,4 @@
-package com.dersuzzala.bandwars.bandmanager;
+package com.dersuzzala.bandwars.bandmanager.controller;
 
 /**
  * Created by jorge on 10/01/18.
