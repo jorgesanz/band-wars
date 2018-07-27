@@ -26,6 +26,7 @@ public class BandController {
     public Band addBand(@RequestBody Band band) {
         Band ohDiarrea = new Band();
         band.setName("Oh! diarrea");
+        return band;
         //TODO call real service
         //return bandService.create(band);
     }
