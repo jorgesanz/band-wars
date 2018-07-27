@@ -5,7 +5,6 @@ spring:
     mongodb:
       host: localhost:27017
       database: band-wars
-      username: mongo
-      password: mongo
+
 server:
   port: 8082
