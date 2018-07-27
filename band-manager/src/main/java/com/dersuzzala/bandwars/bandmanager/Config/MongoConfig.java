@@ -1,6 +1,9 @@
 package com.dersuzzala.bandwars.bandmanager.Config;
 
-import com.mongodb.*;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientOptions;
+import com.mongodb.ServerAddress;
+import com.mongodb.WriteConcern;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +13,6 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -67,7 +69,7 @@ public class MongoConfig {
                 .writeConcern(new WriteConcern(1))
                 .build();
 
-       return new MongoClient(serverAddressList, options);
+        return new MongoClient(serverAddressList, options);
 
     }
 }

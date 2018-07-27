@@ -12,6 +12,6 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.dersuzzala.bandwars.bandmanager")
 public class BandManagerApp {
     public static void main(String[] args) {
-            SpringApplication.run(BandManagerApp.class, args);
+        SpringApplication.run(BandManagerApp.class, args);
     }
 }

@@ -15,7 +15,7 @@ public class BattleController {
     private BattleService battleService;
 
     @GetMapping
-    public Battle getBattle(){
+    public Battle getBattle() {
         return battleService.getBattle();
     }
 

@@ -18,13 +18,13 @@ public class BandController {
     private BandService bandService;
 
     @GetMapping
-    public Collection<Band> getBands(){
+    public Collection<Band> getBands() {
         return bandService.findAll();
     }
 
     @PostMapping
-    public Band addBand(@RequestBody Band band){
-        Band  ohDiarrea = new Band();
+    public Band addBand(@RequestBody Band band) {
+        Band ohDiarrea = new Band();
         band.setName("Oh! diarrea");
         //return bandService.create(band);
     }
