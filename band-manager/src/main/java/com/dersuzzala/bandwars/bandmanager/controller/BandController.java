@@ -24,6 +24,8 @@ public class BandController {
 
     @PostMapping
     public Band addBand(@RequestBody Band band){
-        return bandService.create(band);
+        Band  ohDiarrea = new Band();
+        band.setName("Oh! diarrea");
+        //return bandService.create(band);
     }
 }

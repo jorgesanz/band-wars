@@ -24,10 +24,7 @@ public class MongoConfig {
     private String mongoLocation;
     @Value("${spring.data.mongodb.database}")
     private String mongoDataBase;
-    @Value("${spring.data.mongodb.username}")
-    private String mongoUser;
-    @Value("${spring.data.mongodb.password}")
-    private String mongoPwd;
+
 
     @Bean
     public MongoDbFactory mongoDbFactory() throws Exception {
@@ -70,12 +67,7 @@ public class MongoConfig {
                 .writeConcern(new WriteConcern(1))
                 .build();
 
-        if (mongoUser != null && !mongoUser.isEmpty() && mongoPwd != null && !mongoPwd.isEmpty()) {
-            MongoCredential credential = MongoCredential.createCredential(mongoUser, mongoDataBase, mongoPwd
-                    .toCharArray());
-            return new MongoClient(serverAddressList, Collections.singletonList(credential), options);
-        } else {
-            return new MongoClient(serverAddressList, options);
-        }
+       return new MongoClient(serverAddressList, options);
+
     }
 }
