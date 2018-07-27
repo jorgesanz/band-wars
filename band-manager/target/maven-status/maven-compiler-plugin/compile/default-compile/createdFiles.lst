@@ -1,0 +1,10 @@
+com/dersuzzala/bandwars/bandmanager/service/BandService.class
+com/dersuzzala/bandwars/bandmanager/model/Ranking.class
+com/dersuzzala/bandwars/bandmanager/service/BattleService.class
+com/dersuzzala/bandwars/bandmanager/model/Battle.class
+com/dersuzzala/bandwars/bandmanager/controller/BandController.class
+com/dersuzzala/bandwars/bandmanager/Config/MongoConfig.class
+com/dersuzzala/bandwars/bandmanager/repository/BandRepository.class
+com/dersuzzala/bandwars/bandmanager/BandManagerApp.class
+com/dersuzzala/bandwars/bandmanager/controller/BattleController.class
+com/dersuzzala/bandwars/bandmanager/model/Band.class
