@@ -1,0 +1,10 @@
+/home/jorge/git/band-wars/band-manager/src/main/java/com/dersuzzala/bandwars/bandmanager/model/Battle.java
+/home/jorge/git/band-wars/band-manager/src/main/java/com/dersuzzala/bandwars/bandmanager/BandManagerApp.java
+/home/jorge/git/band-wars/band-manager/src/main/java/com/dersuzzala/bandwars/bandmanager/Config/MongoConfig.java
+/home/jorge/git/band-wars/band-manager/src/main/java/com/dersuzzala/bandwars/bandmanager/service/BattleService.java
+/home/jorge/git/band-wars/band-manager/src/main/java/com/dersuzzala/bandwars/bandmanager/model/Band.java
+/home/jorge/git/band-wars/band-manager/src/main/java/com/dersuzzala/bandwars/bandmanager/controller/BattleController.java
+/home/jorge/git/band-wars/band-manager/src/main/java/com/dersuzzala/bandwars/bandmanager/service/BandService.java
+/home/jorge/git/band-wars/band-manager/src/main/java/com/dersuzzala/bandwars/bandmanager/controller/BandController.java
+/home/jorge/git/band-wars/band-manager/src/main/java/com/dersuzzala/bandwars/bandmanager/repository/BandRepository.java
+/home/jorge/git/band-wars/band-manager/src/main/java/com/dersuzzala/bandwars/bandmanager/model/Ranking.java
