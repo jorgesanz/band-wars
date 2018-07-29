@@ -1,12 +1,6 @@
-
-\.gradle/2\.13/taskArtifacts/
-
 \.idea/
-
 *.iml
-
 *.class
-
 *.jar
 
 # Created by https://www.gitignore.io/api/java,maven
