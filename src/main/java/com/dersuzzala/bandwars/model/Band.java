@@ -1,4 +1,4 @@
-package com.dersuzzala.bandwars.bandmanager.model;
+package com.dersuzzala.bandwars.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -1,6 +1,6 @@
-package com.dersuzzala.bandwars.bandmanager.repository;
+package com.dersuzzala.bandwars.repository;
 
-import com.dersuzzala.bandwars.bandmanager.model.Band;
+import com.dersuzzala.bandwars.model.Band;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

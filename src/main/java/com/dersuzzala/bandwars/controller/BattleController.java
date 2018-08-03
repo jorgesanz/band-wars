@@ -1,7 +1,7 @@
-package com.dersuzzala.bandwars.bandmanager.controller;
+package com.dersuzzala.bandwars.controller;
 
-import com.dersuzzala.bandwars.bandmanager.model.Battle;
-import com.dersuzzala.bandwars.bandmanager.service.BattleService;
+import com.dersuzzala.bandwars.model.Battle;
+import com.dersuzzala.bandwars.service.BattleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

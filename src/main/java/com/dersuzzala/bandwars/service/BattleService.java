@@ -1,7 +1,7 @@
-package com.dersuzzala.bandwars.bandmanager.service;
+package com.dersuzzala.bandwars.service;
 
-import com.dersuzzala.bandwars.bandmanager.model.Band;
-import com.dersuzzala.bandwars.bandmanager.model.Battle;
+import com.dersuzzala.bandwars.model.Band;
+import com.dersuzzala.bandwars.model.Battle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
