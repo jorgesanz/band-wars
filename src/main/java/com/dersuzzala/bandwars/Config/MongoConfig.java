@@ -19,7 +19,7 @@ import java.util.List;
  * Created by jorge on 11/01/18.
  */
 @Configuration
-@EnableMongoRepositories(basePackages = "com.dersuzzala.bandwars.bandmanager.repository")
+@EnableMongoRepositories(basePackages = "com.dersuzzala.bandwars.repository")
 public class MongoConfig {
 
     @Value("${spring.data.mongodb.host}")

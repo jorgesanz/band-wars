@@ -6,5 +6,3 @@ spring:
       host: localhost:27017
       database: band-wars
 
-server:
-  port: 8082
