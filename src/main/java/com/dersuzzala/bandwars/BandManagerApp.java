@@ -1,4 +1,4 @@
-package com.dersuzzala.bandwars.bandmanager;
+package com.dersuzzala.bandwars;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

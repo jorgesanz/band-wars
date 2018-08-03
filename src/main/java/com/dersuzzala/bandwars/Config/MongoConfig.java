@@ -1,4 +1,4 @@
-package com.dersuzzala.bandwars.bandmanager.Config;
+package com.dersuzzala.bandwars.Config;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;

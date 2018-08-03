@@ -1,4 +1,4 @@
-package com.dersuzzala.bandwars.bandmanager.model;
+package com.dersuzzala.bandwars.model;
 
 import java.util.Collection;
 
