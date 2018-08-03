@@ -28,7 +28,7 @@ pipeline {
              }
         stage('RUN'){
                        steps{
-                         sh 'java -jar band-manager/target/band-manager-1.0-SNAPSHOT.jar'
+                         sh 'java -jar target/band-manager-1.0-SNAPSHOT.jar'
                     }
               }
     }
