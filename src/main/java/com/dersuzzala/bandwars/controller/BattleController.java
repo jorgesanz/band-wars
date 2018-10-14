@@ -16,7 +16,10 @@ public class BattleController {
 
     @GetMapping
     public Battle getBattle() {
-        return battleService.getBattle();
+        Battle battle = new Battle();
+        battle.setGenre("Oh diarrea");
+        return battle;
+        //return battleService.getBattle();
     }
 
 }
