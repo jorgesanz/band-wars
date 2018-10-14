@@ -1,17 +1,13 @@
 package com.dersuzzala.bandwars.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.Collection;
 
 /**
  * Created by jorge on 11/01/18.
  */
-@Document(collection = "bands")
+
 public class Band {
 
-    @Id
     private String id;
 
     private String name;
