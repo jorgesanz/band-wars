@@ -11,5 +11,10 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
+        stage('Build') {
+                    steps {
+                        sh 'docker build -t band-wars:0.0.1 .'
+                    }
+                }
     }
 }
