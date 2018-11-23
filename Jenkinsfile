@@ -1,75 +1,45 @@
-pipeline {
-  agent any
+node {
+    stage('Configure') {
+        env.PATH = "${tool 'maven-3.3.9'}/bin:${env.PATH}"
+        version = '1.0.' + env.BUILD_NUMBER
+        currentBuild.displayName = version
 
-  environment {
-    MAJOR_VERSION = 1
-  }
+        properties([
+                buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')),
+                [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/bertjan/spring-boot-sample/'],
+                pipelineTriggers([[$class: 'GitHubPushTrigger']])
+            ])
+    }
 
-  stages {
-    stage('build') {
-      steps {
-        sh 'javac -d . src/*.java'
-        sh 'echo Main-Class: Rectangulator > MANIFEST.MF'
-        sh 'jar -cvmf MANIFEST.MF rectangle.jar *.class'
-      }
-      post {
-        success {
-          archiveArtifacts artifacts: 'rectangle.jar', fingerprint: true
-        }
-      }
+    stage('Checkout') {
+        git 'https://github.com/bertjan/spring-boot-sample'
     }
-    stage('run') {
-      steps {
-        sh 'java -jar rectangle.jar 7 9'
-      }
-    }
-    stage('Promote Development to Master') {
-      when {
-        branch 'development'
-      }
 
-      steps {
-        echo "Stashing Local Changes"
-        sh "git stash"
-        echo "Checking Out Development"
-        sh 'git checkout development'
-        sh 'git pull origin'
-        echo 'Checking Out Master'
-        sh 'git checkout master'
-        echo "Merging Development into Master"
-        sh 'git merge development'
-        echo "Git Push to Origin"
-        sh 'git push origin master'
-      }
-      post {
-        success {
-          emailext(
-            subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Development Promoted to Master",
-            body: """<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' Development Promoted to Master":</p>
-            <p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
-            to: "brandon@linuxacademy.com"
-          )
-        }
-      }
+    stage('Version') {
+        sh "echo \'\ninfo.build.version=\'$version >> src/main/resources/application.properties || true"
+        sh "mvn -B -V -U -e versions:set -DnewVersion=$version"
     }
-    stage('Tagging the Release') {
-      when {
-        branch 'master'
-      }
-      steps {
-        sh "git tag rectangle-${env.MAJOR_VERSION}.${BUILD_NUMBER}"
-        sh "git push origin rectangle-${env.MAJOR_VERSION}.${BUILD_NUMBER}"
-      }
-      post {
-        success {
-          emailext(
-            subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] NEW RELEASE",
-            body: """<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' NEW RELEASE":</p>
-            <p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
-            to: "brandon@linuxacademy.com"
-          )
-        }
-      }
+
+    stage('Build') {
+        sh 'mvn -B -V -U -e clean package'
     }
-  }
+
+    stage('Archive') {
+        junit allowEmptyResults: true, testResults: '**/target/**/TEST*.xml'
+    }
+
+    stage('Deploy') {
+        // Depends on the 'Credentials Binding Plugin'
+        // (https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Binding+Plugin)
+        withCredentials([[$class          : 'UsernamePasswordMultiBinding', credentialsId: 'cloudfoundry',
+                          usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+            sh '''
+                curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github" | tar -zx
+                ./cf api https://api.run.pivotal.io
+                ./cf auth $USERNAME $PASSWORD
+                ./cf target -o bertjan-demo -s development
+                ./cf push
+               '''
+        }
+    }
 }
