@@ -19,17 +19,5 @@ pipeline {
                 sh 'mvn test'
             }
         }
-
-        stage('Create image') {
-
-            agent {
-                docker {
-                    image 'node:7-alpine'
-                }
-            }
-            steps {
-                sh 'docker build -t band-wars:0.0.1 .'
-            }
-        }
     }
 }
