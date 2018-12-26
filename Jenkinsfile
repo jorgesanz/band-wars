@@ -28,7 +28,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'java -jar ./target/bandwars.jar'
+                sh 'java -jar ./target/bandwars.jar &'
             }
         }
     }
