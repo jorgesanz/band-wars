@@ -19,5 +19,17 @@ pipeline {
                 sh 'mvn test'
             }
         }
+
+        stage('Run') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'java -jar ./target/bandwars.jar'
+            }
+        }
     }
 }
