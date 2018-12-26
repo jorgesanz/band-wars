@@ -30,6 +30,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh "java -jar ./target/bandwars.jar > lasttrick.txt"
+                sh "sleep 3600"
             }
         }
     }
