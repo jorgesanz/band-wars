@@ -28,7 +28,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'java -jar ./target/bandwars.jar &'
+                sh 'pwd'
+                sh "java -jar ./target/bandwars.jar > lasttrick.txt"
             }
         }
     }
