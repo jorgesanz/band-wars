@@ -5,8 +5,6 @@ import com.dersuzzala.bandwars.service.BandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-
 /**
  * Created by jorge on 11/01/18.
  */
@@ -18,8 +16,9 @@ public class BandController {
     private BandService bandService;
 
     @GetMapping
-    public Collection<Band> getBands() {
-        return bandService.findAll();
+    public String getBands() {
+        return "Oh! diarrea";
+       // return bandService.findAll();
     }
 
     @PostMapping

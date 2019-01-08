@@ -14,7 +14,7 @@ public class BattleService {
 
     public Battle getBattle() {
 
-        List<Band> bands = bandService.findAll();
+        List<Band> bands = new ArrayList<>();//bandService.findAll();
         Map<String, Set<String>> genres = new HashMap<>();
         for (Band band : bands) {
             //TODO lambda expression
