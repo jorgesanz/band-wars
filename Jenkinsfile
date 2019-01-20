@@ -12,6 +12,7 @@ pipeline {
             steps {
                 echo 'Running building automation'
                 sh 'mvn -B -DskipTests clean package'
+                
             }
         }
 
