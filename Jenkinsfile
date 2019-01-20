@@ -12,7 +12,6 @@ pipeline {
             steps {
                 echo 'Running building automation'
                 sh 'mvn -B -DskipTests clean package'
-                archiveArtifacts '/target/app.jar'
             }
         }
 
